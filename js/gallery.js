@@ -82,3 +82,31 @@ const images = [
   }
 
   container.innerHTML = createPhoto(images);
+
+
+  container.addEventListener('click', function (event) {
+    event.preventDefault();
+
+    const target = event.target.closest('.gallery-link');
+
+    if (target && this.contains(target)) {
+        const largeImageUrl = target.getAttribute('href');
+       
+    }
+});
+
+container.addEventListener('click', function (event) {
+    event.preventDefault();
+
+    const target = event.target.closest('.gallery-link');
+
+    if (target && this.contains(target)) {
+        const largeImageUrl = target.getAttribute('href');
+
+        const instance = basicLightbox.create(`
+            <img src="${largeImageUrl}" width="800" height="600">
+        `);
+
+        instance.show();
+    }
+});
